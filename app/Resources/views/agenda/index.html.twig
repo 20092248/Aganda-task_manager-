@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+   <h2 class="page-header">Liste de tâche à faire</h2>
+   <table id="pagination" class="table table-striped">
+      <thead><tr> <th>#</th> <th>Tâche</th> <th>Date</th> <th>Priorité</th> </tr>
+      </thead>
+      <tbody>
+      {% for agenda in listes %}
+       <tr> <th scope="row">{{ agenda.id }}</th> <td>{{ agenda.name }}</td> <td>{{ agenda.date|date('F j, Y, g:i a') }}</td> <td>{{ agenda.priority }}</td>
+          <td>
+             <a href="/agenda/details/{{ agenda.id }}" class="btn btn-success">View</a>
+             <a href="/agenda/modifier/{{ agenda.id }}" class="btn btn-default">Modifier</a>
+             <a href="/agenda/supprimer/{{ agenda.id }}" class="btn btn-danger">Supprimer</a>
+          </td>
+       </tr>
+          {% endfor %}
+      </tbody>
+   </table>
+{% endblock %}

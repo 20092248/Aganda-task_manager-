@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h2 class="page-header">{{ agenda.name }}</h2>
+    <ul class="list-group">
+        <li class="list-group-item">Categorie : {{ agenda.category }}</li>
+        <li class="list-group-item">Priorité : {{ agenda.priority }}</li>
+        <li class="list-group-item">Date : {{ agenda.date|date('F j, Y, g:i a') }}</li>
+    </ul>
+    <p>
+        {{ agenda.description }}
+    </p>
+    <hr>
+    <a class="btn btn-default" href="/agenda">Retour</a>
+
+{% endblock %}
